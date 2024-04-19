@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Artes Marciais</title>
+    <style>
+        body 
+        {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        input, select, textarea 
+        {
+            font-size: 16px;
+            margin-bottom: 10px;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        input[type="radio"], input[type="checkbox"]
+        {
+            margin-right: 5px;
+        }
+        input:hover 
+        {
+            background-color: #e0e0e0;
+        }
+        label 
+        {
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        #erro
+        {
+            color: red;
+        }
+        body{background-color: cornflowerblue;}
+        input{color: red}
+        input{font-family: sans-serif;}
+        input{font-size: 120%;}
+        input{margin-right: 30px;}
+        label{font-size: 30px;}
+        #erro {
+            color: red;
+        }
+        h2{
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Formulário de Inscrição - Artes Marciais</h2>
+    <form action="#" method="get" id="formulario1" onsubmit="return verificar(event)">
+        <label for="nome">Nome do Atléta:</label>
+        <input type="text" id="nome" name="nome" required>
+        <br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+        <label for="idade">Idade:</label>
+        <input type="number" id="idade" name="idade" required>
+        <br><br>
+        <label for="genero">Gênero:</label>
+        <select id="genero" name="genero" required>
+            <option value="">Selecione</option>
+            <option value="masculino">Masculino</option>
+            <option value="feminino">Feminino</option>
+            <option value="outro">Outro</option>
+        </select>
+        <br><br>
+        <label for="estilo">Estilo de Artes Marciais:</label>
+        <select id="estilo" name="estilo" required>
+            <option value="">Selecione</option>
+            <option value="karate">Karate</option>
+            <option value="taekwondo">Taekwondo</option>
+            <option value="jiujitsu">Jiu-Jitsu</option>
+            <option value="muaythai">Muay Thai</option>
+            <option value="judô">Judô</option>
+        </select>
+        <br><br>
+        <label for="experiencia">Experiência em Artes Marciais:</label>
+        <input type="number" id="experiencia" name="experiencia" required>
+        <br><br>
+        <label for="radio">Pratica atualmente alguma arte marcial?</label>
+        <input type="radio" id="sim" name="pratica" value="sim" required>
+        <label for="sim">Sim</label>
+        <input type="radio" id="nao" name="pratica" value="nao">
+        <label for="nao">Não</label>
+        <br><br>
+        <label for="motivo">Por que deseja praticar artes marciais?</label>
+        <textarea id="motivo" name="motivo" rows="4" required></textarea>
+        <br><br>
+        <input type="submit" value="Enviar">
+    </form>
+
+    <script>
+        function verificar(event) {
+            const camposObrigatorios = document.querySelectorAll('[required]');
+            let valido = true;
+
+            for (let i = 0; i < camposObrigatorios.length; i++)
+             {
+                const campo = camposObrigatorios[i];
+                if (!campo.value.trim()) 
+                {
+                    campo.classList.add('erro');
+                    valido = false;
+                }
+                else
+                {
+                    campo.classList.remove('erro');
+                }
+            }
+
+            if (!valido) 
+            {
+                event.preventDefault();
+            }
+            return valido;
+        }
+    </script>
+</body>
+</html>
